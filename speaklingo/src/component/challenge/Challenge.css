@@ -1,0 +1,69 @@
+#root {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0rem;
+    text-align: center;
+  }
+  .join-div {
+    margin: 8% auto;
+    width: 32%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 22px 13px 20px rgba(0, 0, 0, 0.5);
+}
+  input{
+  padding: 5px;
+  font-size: medium;
+  border-radius: 10px;
+  }
+  
+ 
+
+  .quiz-div{
+   background-color: rgba(0, 0, 0, 0.14);
+  }
+  .room-id{
+    font-size: 20px;
+    /* margin-top: -30px; */
+  }
+  
+  .quiz-div{
+    height: max-content;
+    padding: 5px;
+    margin: auto;
+  }
+  
+  .question{
+  font-size: 20px;
+  width: 100%;
+  margin: 50px auto;
+  
+  }
+  .question-text{
+  margin: 5px auto;
+  }
+  ul {
+    margin: 0 auto;
+    padding: 0;
+  }
+  li{
+  
+    list-style-type: none;
+    /* border: 1px solid; */
+    border-radius: 10px;
+    width: 70%;
+    margin: 15px auto;
+  }
+  .options{
+    width: 100%;
+  }
+  .selected {
+    background-color: #b77dfd; 
+    color: #fff; 
+  }
+  
+  
+  
