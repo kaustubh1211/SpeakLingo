@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Confettie from "react-confetti";
-const socket = io("http://localhost:5000");
+const socket = io("https://speak-lingo-server.vercel.app/");
 
 const Challenge = () => {
   const [name, setName] = useState(null);
@@ -65,7 +65,6 @@ const Challenge = () => {
       socket.off("message");
     };
   }, []);
-
   useEffect(() => {
     socket.on("newQuestion", (data) => {
       setQuestion(data.question);
