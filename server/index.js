@@ -8,7 +8,7 @@ const server = http.createServer(app);
 app.use(cors());
 const io = socketIo(server, {
    cors: {
-     origin: "https://speak-lingo-client.vercel.app/",
+     origin: "*",
      methods: ["GET", "POST"],
    },
 }); 
