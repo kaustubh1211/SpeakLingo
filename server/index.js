@@ -5,10 +5,13 @@ const cors = require("cors");
 const app = express();
 
 const server = http.createServer(app);
-app.use(cors());
+app.use(cors({
+  origin: "https://speak-lingo-client.vercel.app/", 
+  methods: ["GET", "POST"],
+}));
 const io = socketIo(server, {
-   cors: {
-     origin: "*",
+   cors: { 
+     origin: "https://speak-lingo-client.vercel.app/",
      methods: ["GET", "POST"],
    },
 }); 
