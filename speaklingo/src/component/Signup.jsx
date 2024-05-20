@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { auth } from "../firebase";
+import { auth, signInWithGoogle } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 export default function () {
@@ -25,6 +25,16 @@ export default function () {
         setErrorHandle(errorCode, errorMessage);
         // ..
       });
+  };
+  const logGoogleUser = async () => {
+    try {
+      const result = await signInWithGoogle();
+      // Handle the result here (e.g., user info, token)
+      console.log(result);
+      navigate("/Home");
+    } catch (error) {
+      console.error("Error signing in with Google", error);
+    }
   };
   return (
     <div>
@@ -86,6 +96,18 @@ export default function () {
                 SignIn
               </button>
             </div>
+            <button
+              onClick={logGoogleUser}
+              className="flex flex-col items-center justify-center m-0 text-center w-full py-2 bg  rounded-md  "
+            >
+              <span>OR</span>
+              <span className=" text-black">Sign In With Google</span>
+              <img
+                src="Icon/google_300221.png"
+                className="w-10 mt-2"
+                alt="Google Icon"
+              />
+            </button>
           </form>
 
           <p className="mt-8 text-xs font-light text-center text-gray-700">

@@ -83,8 +83,9 @@ export default function Login() {
 
             <button
               onClick={logGoogleUser}
-              className="flex flex-col items-center justify-center m-0 text-center w-full py-2 bg text-white rounded-md  focus:outline-none "
+              className="flex flex-col items-center justify-center m-0 text-center w-full py-2 bg  rounded-md  "
             >
+              <span>OR</span>
               <span className=" text-black">Sign In With Google</span>
               <img
                 src="Icon/google_300221.png"
