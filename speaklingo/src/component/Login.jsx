@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth, signInWithGoogle } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 export default function Login() {
@@ -22,6 +22,16 @@ export default function Login() {
         console.log(errorCode, errorMessage);
         setErrorHandle(errorCode, errorMessage);
       });
+  };
+  const logGoogleUser = async () => {
+    try {
+      const result = await signInWithGoogle();
+      // Handle the result here (e.g., user info, token)
+      console.log(result);
+      navigate("/Home");
+    } catch (error) {
+      console.error("Error signing in with Google", error);
+    }
   };
   return (
     <div>
@@ -50,12 +60,11 @@ export default function Login() {
                 className="block text-sm font-semibold text-gray-800"
               >
                 Password
-                
               </label>
               <input
                 type="password"
                 className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                required 
+                required
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
@@ -71,8 +80,20 @@ export default function Login() {
                 Login
               </button>
             </div>
+
+            <button
+              onClick={logGoogleUser}
+              className="flex flex-col items-center justify-center m-0 text-center w-full py-2 bg text-white rounded-md  focus:outline-none "
+            >
+              <span className=" text-black">Sign In With Google</span>
+              <img
+                src="Icon/google_300221.png"
+                className="w-10 mt-2"
+                alt="Google Icon"
+              />
+            </button>
           </form>
-     
+
           <p className="mt-8 text-xs font-light text-center text-gray-700">
             {" "}
             Don't have an account?{" "}
